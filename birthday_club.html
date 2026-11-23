@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#7438a8">
+<title>Birthday Club 🎂</title>
+<style>
+:root{--purple:#7438a8;--pink:#fce7f3;--ink:#28213a;--muted:#766f83;--line:#eee8f3;--bg:#faf7fc}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#fff7fb,#f5f0ff);font-family:Arial,"Segoe UI",sans-serif;color:var(--ink)}
+main{max-width:920px;margin:28px auto;padding:0 16px 40px}
+header{background:linear-gradient(120deg,#7136a4,#a34fba);color:white;border-radius:24px;padding:28px;box-shadow:0 14px 35px #66339924}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.brand{font-weight:800;letter-spacing:1px}.hero{font-size:clamp(28px,5vw,42px);font-weight:800;margin:20px 0 6px}.sub{opacity:.9}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}.stat{background:#ffffff22;border:1px solid #ffffff2c;border-radius:15px;padding:13px}.stat b{display:block;font-size:27px}.stat span{font-size:13px;opacity:.9}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}.toolbar input{flex:1;min-width:180px}
+button,.filebtn{border:0;border-radius:12px;padding:12px 16px;background:var(--purple);color:white;font-weight:700;cursor:pointer;font-size:14px}
+button.secondary,.filebtn.secondary{background:#eee7f5;color:#563477}button.danger{background:#fff0f1;color:#b4233b}button.small{padding:8px 10px;font-size:12px}
+input{width:100%;padding:12px;border:1px solid #ddd3e7;border-radius:11px;font:inherit;background:white;color:var(--ink)}
+.panel{background:white;border:1px solid var(--line);border-radius:20px;padding:20px;margin-top:18px;box-shadow:0 8px 24px #39204a08}
+.panel h2{margin:0 0 14px;font-size:20px}.birthday{display:flex;align-items:center;gap:13px;padding:13px 0;border-bottom:1px solid var(--line)}.birthday:last-child{border:0}
+.avatar{width:48px;height:48px;border-radius:15px;background:var(--pink);display:grid;place-items:center;font-size:24px;flex:none}
+.person{flex:1;min-width:0}.person b{display:block;font-size:16px}.meta{font-size:13px;color:var(--muted);margin-top:4px}.age{text-align:left;white-space:nowrap}.age strong{display:block;font-size:17px}.age span{font-size:12px;color:var(--muted)}
+.pill{display:inline-block;padding:5px 9px;border-radius:20px;background:#f0e9fb;color:#63358a;font-size:12px;font-weight:700}
+form{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{font-size:13px;font-weight:700}label input{margin-top:6px}form .wide{grid-column:1/-1}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.empty{text-align:center;padding:28px;color:var(--muted)}.note{font-size:13px;line-height:1.6;color:var(--muted)}
+.notice{background:#fff8e8;border:1px solid #f5e3b6;border-radius:13px;padding:13px;font-size:13px;line-height:1.55;margin-top:14px}
+footer{text-align:center;color:var(--muted);font-size:12px;margin-top:22px}
+@media(max-width:560px){main{margin:12px auto}.stats{gap:7px}.stat{padding:10px}.stat b{font-size:22px}.panel{padding:15px}form{grid-template-columns:1fr}.wide{grid-column:auto}.age strong{font-size:15px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+ <div class="top"><div class="brand">🎂 BIRTHDAY CLUB</div><span class="pill" style="background:#ffffff28;color:white">היומן האישי שלך</span></div>
+ <div class="hero">לא שוכחים אף יום הולדת! 🎈</div><div class="sub">כל האנשים החשובים לך, במקום אחד.</div>
+ <div class="stats">
+  <div class="stat"><b id="count">0</b><span>אנשים ברשימה</span></div>
+  <div class="stat"><b id="todayCount">0</b><span>חוגגים היום</span></div>
+  <div class="stat"><b id="monthCount">0</b><span>ב־30 הימים הקרובים</span></div>
+ </div>
+</header>
+
+<section class="panel">
+ <h2>➕ הוספת יום הולדת</h2>
+ <form id="personForm">
+  <label>שם האדם<input id="name" required maxlength="70" placeholder="לדוגמה: דנה"></label>
+  <label>תאריך לידה<input id="date" type="date" required></label>
+  <label class="wide">הערות (לא חובה)<input id="notes" maxlength="140" placeholder="משפחה, חברים, עבודה..."></label>
+  <div class="wide actions"><button type="submit" id="saveBtn">הוסף לרשימה 🎉</button><button type="button" class="secondary" id="cancelEdit" hidden>ביטול עריכה</button></div>
+ </form>
+</section>
+
+<section class="panel">
+ <div class="top"><h2>🎁 ימי ההולדת הקרובים</h2><span class="pill" id="nextYear"></span></div>
+ <div class="toolbar"><input id="search" placeholder="חיפוש לפי שם..."><button class="secondary" id="notifyBtn">🔔 הפעל תזכורות</button></div>
+ <div id="list"></div>
+</section>
+
+<section class="panel">
+ <h2>🎉 חצאי ימי הולדת</h2>
+ <div class="note">חצי יום הולדת חל שישה חודשים אחרי יום ההולדת. אם אין תאריך מקביל בחודש, משתמשים ביום האחרון של אותו חודש.</div>
+ <div id="halfList"></div>
+</section>
+
+<section class="panel">
+ <h2>🛟 גיבוי הנתונים</h2>
+ <div class="note">הנתונים נשמרים בדפדפן במכשיר הזה. מומלץ להוריד מדי פעם קובץ גיבוי, במיוחד לפני מעבר למחשב או לטלפון אחר.</div>
+ <div class="actions">
+  <button class="secondary" id="exportBtn">⬇️ ייצוא גיבוי</button>
+  <label class="filebtn secondary">⬆️ ייבוא גיבוי<input type="file" id="importFile" accept="application/json" hidden></label>
+ </div>
+ <div class="notice">חשוב לגבי התזכורות: התראות דפדפן דורשות אישור שלך, ובדרך כלל אתר סטטי יכול לבדוק אותן רק כשהוא פתוח. כדי לקבל התראות אמינות גם כשהאתר סגור, כולל באייפון, צריך לפרסם את האתר בכתובת HTTPS ולהוסיף שירות Push/יומן מסונכרן.</div>
+</section>
+<footer>Birthday Club · נבנה במיוחד בשבילך 💜</footer>
+</main>
+<script>
+const KEY='birthday-club-v1';
+// Keep personal birthday details out of the public source code.
+// Add people after opening your own published Birthday Club.
+const initial=[];
+let people=[];
+try{people=JSON.parse(localStorage.getItem(KEY)||'null')||initial;localStorage.setItem(KEY,JSON.stringify(people));}catch(e){people=initial.slice();}
+let editing=null;
+const $=id=>document.getElementById(id);
+function save(){try{localStorage.setItem(KEY,JSON.stringify(people));}catch(e){alert('לא ניתן לשמור בדפדפן הזה. מומלץ לייצא גיבוי.');}}
+function dateParts(s){const [y,m,d]=s.split('-').map(Number);return {y,m,d};}
+function nextDate(s){const {m,d}=dateParts(s),now=new Date();let x=new Date(now.getFullYear(),m-1,d);x.setHours(0,0,0,0);const t=new Date();t.setHours(0,0,0,0);if(x<t)x=new Date(now.getFullYear()+1,m-1,d);return x;}
+function halfBirthdayDate(s,year){
+ const {m,d}=dateParts(s);
+ const base=new Date(year,m-1,d);
+ const targetMonth=(m-1+6)%12;
+ const targetYear=year+(m-1+6>=12?1:0);
+ const lastDay=new Date(targetYear,targetMonth+1,0).getDate();
+ return new Date(targetYear,targetMonth,Math.min(d,lastDay));
+}
+function nextHalfDate(s){
+ const now=new Date();now.setHours(0,0,0,0);
+ let x=halfBirthdayDate(s,now.getFullYear());
+ if(x<now)x=halfBirthdayDate(s,now.getFullYear()+1);
+ return x;
+}
+function halfDaysUntil(s){const x=nextHalfDate(s),t=new Date();t.setHours(0,0,0,0);return Math.round((x-t)/86400000);}
+function ageAtNext(s){const {y}=dateParts(s);return nextDate(s).getFullYear()-y;}
+function daysUntil(s){const n=nextDate(s),t=new Date();t.setHours(0,0,0,0);return Math.round((n-t)/86400000);}
+function zodiac(s){const {m,d}=dateParts(s);if((m===3&&d>=21)||(m===4&&d<=19))return'טלה ♈';if((m===4&&d>=20)||(m===5&&d<=20))return'שור ♉';if((m===5&&d>=21)||(m===6&&d<=20))return'תאומים ♊';if((m===6&&d>=21)||(m===7&&d<=22))return'סרטן ♋';if((m===7&&d>=23)||(m===8&&d<=22))return'אריה ♌';if((m===8&&d>=23)||(m===9&&d<=22))return'בתולה ♍';if((m===9&&d>=23)||(m===10&&d<=22))return'מאזניים ♎';if((m===10&&d>=23)||(m===11&&d<=21))return'עקרב ♏';if((m===11&&d>=22)||(m===12&&d<=21))return'קשת ♐';if((m===12&&d>=22)||(m===1&&d<=19))return'גדי ♑';if((m===1&&d>=20)||(m===2&&d<=18))return'דלי ♒';return'דגים ♓';}
+function fmt(s){const {d,m}=dateParts(s);return `${String(d).padStart(2,'0')}/${String(m).padStart(2,'0')}`;}
+function render(){
+ const sorted=[...people].sort((a,b)=>daysUntil(a.date)-daysUntil(b.date));
+ const today=new Date(),todayKey=`${today.getMonth()+1}-${today.getDate()}`;
+ $('count').textContent=people.length;
+ $('todayCount').textContent=people.filter(p=>{const q=dateParts(p.date);return `${q.m}-${q.d}`===todayKey}).length;
+ $('monthCount').textContent=people.filter(p=>daysUntil(p.date)<=30).length;
+ $('nextYear').textContent='השנה הקרובה';
+ const q=$('search').value.trim().toLowerCase();
+ const filtered=sorted.filter(p=>p.name.toLowerCase().includes(q));
+ $('list').innerHTML=filtered.length?'':'<div class="empty">עדיין אין תוצאות. אפשר להוסיף יום הולדת בטופס למעלה 🎈</div>';
+ filtered.forEach(p=>{
+  const days=daysUntil(p.date),when=days===0?'היום!':days===1?'מחר':`בעוד ${days} ימים`;
+  const el=document.createElement('div');el.className='birthday';
+  const av=document.createElement('div');av.className='avatar';av.textContent='🎂';
+  const person=document.createElement('div');person.className='person';
+  const name=document.createElement('b');name.textContent=p.name;
+  const meta=document.createElement('div');meta.className='meta';meta.textContent=`${fmt(p.date)} · ${zodiac(p.date)}${p.notes?' · '+p.notes:''}`;
+  person.append(name,meta);
+  const age=document.createElement('div');age.className='age';
+  const strong=document.createElement('strong');strong.textContent=`גיל ${ageAtNext(p.date)}`;
+  const span=document.createElement('span');span.textContent=when;
+  age.append(strong,span);
+  const actions=document.createElement('div');actions.style.display='flex';actions.style.gap='5px';
+  const edit=document.createElement('button');edit.className='small secondary';edit.textContent='עריכה';edit.onclick=()=>editPerson(p.id);
+  const del=document.createElement('button');del.className='small danger';del.textContent='מחיקה';del.onclick=()=>{if(confirm(`למחוק את ${p.name} מהרשימה?`)){people=people.filter(x=>x.id!==p.id);save();render();}};
+  actions.append(edit,del);el.append(av,person,age,actions);$('list').append(el);
+ });
+ const halfSorted=[...people].sort((a,b)=>halfDaysUntil(a.date)-halfDaysUntil(b.date));
+ $('halfList').innerHTML=halfSorted.length?'':'<div class="empty">חצאי ימי ההולדת יופיעו כאן אחרי הוספת אנשים.</div>';
+ halfSorted.forEach(p=>{
+  const days=halfDaysUntil(p.date),date=nextHalfDate(p.date);
+  const when=days===0?'היום!':days===1?'מחר':`בעוד ${days} ימים`;
+  const el=document.createElement('div');el.className='birthday';
+  const av=document.createElement('div');av.className='avatar';av.textContent='🥳';
+  const person=document.createElement('div');person.className='person';
+  const name=document.createElement('b');name.textContent=p.name;
+  const meta=document.createElement('div');meta.className='meta';meta.textContent=`${String(date.getDate()).padStart(2,'0')}/${String(date.getMonth()+1).padStart(2,'0')} · חצי יום הולדת`;
+  person.append(name,meta);
+  const age=document.createElement('div');age.className='age';
+  const strong=document.createElement('strong');strong.textContent='חצי שנה!';
+  const span=document.createElement('span');span.textContent=when;
+  age.append(strong,span);el.append(av,person,age);$('halfList').append(el);
+ });
+}
+function resetForm(){editing=null;$('personForm').reset();$('saveBtn').textContent='הוסף לרשימה 🎉';$('cancelEdit').hidden=true;}
+function editPerson(id){const p=people.find(x=>x.id===id);if(!p)return;editing=id;$('name').value=p.name;$('date').value=p.date;$('notes').value=p.notes||'';$('saveBtn').textContent='שמור שינויים';$('cancelEdit').hidden=false;window.scrollTo({top:0,behavior:'smooth'});}
+$('personForm').addEventListener('submit',e=>{e.preventDefault();const p={id:editing||String(Date.now()),name:$('name').value.trim(),date:$('date').value,notes:$('notes').value.trim()};if(editing)people=people.map(x=>x.id===editing?p:x);else people.push(p);save();resetForm();render();});
+$('cancelEdit').onclick=resetForm;$('search').oninput=render;
+$('exportBtn').onclick=()=>{const blob=new Blob([JSON.stringify(people,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='birthday-club-backup.json';a.click();URL.revokeObjectURL(url);};
+$('importFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const data=JSON.parse(await f.text());if(!Array.isArray(data)||!data.every(p=>p.name&&/^\d{4}-\d{2}-\d{2}$/.test(p.date)))throw Error();if(confirm('ייבוא הגיבוי יחליף את הרשימה הנוכחית. להמשיך?')){people=data;save();render();}}catch(err){alert('קובץ הגיבוי אינו תקין.');}e.target.value='';};
+$('notifyBtn').onclick=async()=>{if(!('Notification'in window)){alert('הדפדפן הזה אינו תומך בהתראות.');return;}const permission=await Notification.requestPermission();alert(permission==='granted'?'ההתראות אושרו. כל עוד האתר פתוח, הוא יבדוק תזכורות.':'לא ניתנה הרשאה להתראות.');};
+function checkReminders(){if(!('Notification'in window)||Notification.permission!=='granted')return;const now=new Date();if(now.getHours()<8||now.getHours()>10)return;const today=`${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`;people.forEach(p=>{[[daysUntil(p.date),'birthday'],[halfDaysUntil(p.date),'half']].forEach(([days,type])=>{if(![0,1,7].includes(days))return;const key=`${p.id}-${type}-${today}-${days}`;if(localStorage.getItem('birthday-notified-'+key))return;const timing=days===0?'היום!':days===1?'מחר!':'בעוד שבוע!';const title=type==='birthday'?'🎂 יום הולדת':'🎉 חצי יום הולדת';new Notification(`${title}: ${p.name}`,{body:type==='birthday'?`יום ההולדת ${timing} חוגגים גיל ${ageAtNext(p.date)}.`:`חצי יום ההולדת ${timing}`});localStorage.setItem('birthday-notified-'+key,'1');});});}
+render();checkReminders();setInterval(checkReminders,60000);
+</script>
+</body></html>

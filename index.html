@@ -29,7 +29,42 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{font-size:13px;fo
 .empty{text-align:center;padding:28px;color:var(--muted)}.note{font-size:13px;line-height:1.6;color:var(--muted)}
 .notice{background:#fff8e8;border:1px solid #f5e3b6;border-radius:13px;padding:13px;font-size:13px;line-height:1.55;margin-top:14px}
 footer{text-align:center;color:var(--muted);font-size:12px;margin-top:22px}
-@media(max-width:560px){.page-tabs{gap:5px}.page-tab{padding:10px 8px;font-size:13px}.theme-grid{grid-template-columns:1fr}.color-controls{grid-template-columns:1fr}main{margin:12px auto}.stats{gap:7px}.stat{padding:10px}.stat b{font-size:22px}.panel{padding:15px}form{grid-template-columns:1fr}.wide{grid-column:auto}.age strong{font-size:15px}}
+label select,label textarea{display:block;width:100%;margin-top:6px;padding:12px;border:1px solid #ddd3e7;border-radius:11px;font:inherit;background:white;color:var(--ink)}
+.greeting-controls{display:grid;grid-template-columns:1fr 1fr;gap:12px}.greeting-message-label{display:block;margin-top:12px}.greeting-card{position:relative;overflow:hidden;min-height:260px;margin-top:16px;padding:28px 18px;border-radius:22px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;box-shadow:0 12px 30px #39204a18;isolation:isolate}.greeting-card:before,.greeting-card:after{content:'✨';position:absolute;font-size:44px;animation:floaty 3s ease-in-out infinite;z-index:-1}.greeting-card:before{top:18px;left:22px}.greeting-card:after{bottom:18px;right:22px;animation-delay:1s}.theme-confetti{background:linear-gradient(135deg,#fff0f7,#eee8ff 55%,#e7f8ff);color:#553071}.theme-elegant{background:linear-gradient(135deg,#29213e,#765b45);color:#fff1c9}.theme-party{background:linear-gradient(135deg,#d8f6ff,#ffe3f2 55%,#fff0c9);color:#3e3b80}.greeting-decor{font-size:27px;letter-spacing:5px;animation:bob 2s ease-in-out infinite}.greeting-kicker{font-weight:800;letter-spacing:2px}.greeting-name{font-size:clamp(27px,5vw,40px);font-weight:900}.greeting-copy{font-size:18px;line-height:1.6;white-space:pre-wrap;max-width:620px}.greeting-sign{font-weight:700}.motion-toggle{display:flex;align-items:center;gap:10px}.motion-toggle input{width:auto;transform:scale(1.2)}.confetti-layer{position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden}.confetti-piece{position:absolute;top:-20px;width:10px;height:16px;border-radius:3px;animation:fall 3.2s linear forwards}.balloon-float{position:fixed;bottom:-100px;z-index:9998;pointer-events:none;font-size:44px;animation:rise 5s ease-in forwards}@keyframes fall{to{transform:translateY(110vh) rotate(760deg);opacity:.15}}@keyframes rise{to{transform:translateY(-120vh) translateX(35px);opacity:0}}@keyframes floaty{50%{transform:translateY(-9px) rotate(8deg)}}@keyframes bob{50%{transform:translateY(-7px)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
+@media(max-width:560px){.page-tabs{gap:5px}.page-tab{padding:10px 8px;font-size:13px}.theme-grid{grid-template-columns:1fr}.color-controls{grid-template-columns:1fr}main{margin:12px auto}.stats{gap:7px}.stat{padding:10px}.stat b{font-size:22px}.panel{padding:15px}form{grid-template-columns:1fr}.wide{grid-column:auto}.age strong{font-size:15px}.greeting-controls{grid-template-columns:1fr}.greeting-card{min-height:230px;padding:22px 14px}}
+
+.comic-controls{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.comic-stage{margin-top:16px;padding:14px;border:3px solid #24202b;border-radius:18px;background:#fffdf5;color:#211d2b;box-shadow:7px 7px 0 #24202b}
+.comic-panels{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.comic-panel{position:relative;min-height:190px;border:3px solid #24202b;border-radius:9px;overflow:hidden;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:radial-gradient(#b8a9cf 1px,transparent 1.5px),#f5edff;background-size:10px 10px}
+.comic-panel:nth-child(2){background:radial-gradient(#f3a7b8 1px,transparent 1.5px),#fff0f3;background-size:10px 10px}
+.comic-panel:nth-child(3){background:radial-gradient(#8ccfc2 1px,transparent 1.5px),#eafff8;background-size:10px 10px}
+.comic-panel:nth-child(4){background:radial-gradient(#e9c36e 1px,transparent 1.5px),#fff8df;background-size:10px 10px}
+.comic-avatar{font-size:clamp(48px,9vw,76px);line-height:1.15;filter:drop-shadow(2px 3px 0 #fff);margin:5px}
+.comic-photo{width:104px;height:104px;object-fit:cover;border:4px solid #24202b;border-radius:50%;filter:contrast(1.2) saturate(1.35);box-shadow:4px 4px 0 #fff}
+.comic-bubble{position:relative;max-width:95%;padding:9px 12px;border:2px solid #24202b;border-radius:16px;background:white;font-weight:800;line-height:1.35;box-shadow:3px 3px 0 #24202b}
+.comic-title{font-weight:1000;font-size:clamp(23px,4vw,36px);text-align:center;margin:4px 0 12px;text-shadow:2px 2px #f4c7dc}
+.comic-caption{font-weight:900;font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.comic-controls textarea{min-height:64px}
+@media(max-width:560px){.comic-controls{grid-template-columns:1fr}.comic-panels{gap:6px}.comic-panel{min-height:160px;padding:7px}.comic-bubble{font-size:13px}}
+
+
+.avatar-studio{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.avatar-preview-wrap{background:linear-gradient(135deg,#f4e8ff,#ffe9f0);border:2px solid var(--line);border-radius:18px;padding:18px;text-align:center}
+.avatar-preview{width:190px;height:220px;margin:0 auto;position:relative;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.avatar-head{width:112px;height:125px;border-radius:48% 48% 44% 44%;position:relative;background:var(--skin,#d99b72);border:3px solid #302536;box-shadow:inset -8px -5px #00000012;z-index:2}
+.avatar-hair{position:absolute;top:-8px;left:-4px;right:-4px;height:43px;background:var(--hair,#38251f);border:3px solid #302536;border-radius:60% 60% 30% 25%;z-index:3}
+.avatar-eyes{position:absolute;top:54px;left:0;right:0;font-size:25px;letter-spacing:12px}
+.avatar-mouth{position:absolute;top:85px;left:0;right:0;font-size:24px}
+.avatar-body{width:145px;height:75px;margin-top:-8px;border:3px solid #302536;border-radius:55px 55px 18px 18px;background:var(--shirt,#7438a8);z-index:1}
+.avatar-accessory{position:absolute;top:44px;right:-12px;font-size:29px;z-index:4}
+.avatar-photo-result{max-width:190px;max-height:220px;object-fit:cover;border:4px solid #302536;border-radius:18px;box-shadow:6px 6px 0 #ffffff}
+.avatar-controls{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.avatar-controls label{display:block}
+.avatar-controls select,.avatar-controls input{width:100%;margin-top:5px;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit}
+@media(max-width:600px){.avatar-studio{grid-template-columns:1fr}.avatar-controls{grid-template-columns:1fr 1fr}}
+
 </style>
 </head>
 <body>
@@ -58,15 +93,112 @@ footer{text-align:center;color:var(--muted);font-size:12px;margin-top:22px}
  <form id="personForm">
   <label>שם האדם<input id="name" required maxlength="70" placeholder="לדוגמה: דנה"></label>
   <label>תאריך לידה<input id="date" type="date" required></label>
-  <label class="wide">הערות (לא חובה)<input id="notes" maxlength="140" placeholder="משפחה, חברים, עבודה..."></label>
+  <label>סוג קשר<select id="relationship"><option value="">בחר סוג קשר</option><option value="משפחה">משפחה</option><option value="חברים">חברים</option><option value="עבודה">עבודה</option><option value="אחר">אחר</option></select></label>
+  <label class="wide">הערות (לא חובה)<input id="notes" maxlength="140" placeholder="הערה קצרה, אם יש"></label>
   <div class="wide actions"><button type="submit" id="saveBtn">הוסף לרשימה 🎉</button><button type="button" class="secondary" id="cancelEdit" hidden>ביטול עריכה</button></div>
  </form>
+</section>
+
+<section class="panel" id="contactsImportPanel">
+ <h2>📇 ייבוא ימי הולדת מאנשי הקשר באייפון</h2>
+ <p class="note">בחר קובץ אנשי קשר בפורמט vCard ‏(.vcf). הקובץ ייקרא ויעובד בתוך הדפדפן במכשיר שלך בלבד; האתר לא שולח אותו לשרת. נחלץ רק שם ותאריך לידה. מומלץ לייצא מראש רק רשימה של האנשים שתרצה להוסיף.</p>
+ <label class="filebtn secondary">📂 בחירת קובץ אנשי קשר (.vcf)<input type="file" id="contactsFile" accept=".vcf,text/vcard" hidden></label>
+ <div id="contactsImportStatus" class="note" aria-live="polite" style="margin-top:12px">עדיין לא נבחר קובץ.</div>
+ <div id="contactsPreview" class="note" style="max-height:220px;overflow:auto;white-space:pre-line"></div>
+ <div class="actions"><button type="button" id="importContactsBtn" hidden>ייבא את ימי ההולדת שנמצאו</button><button type="button" class="secondary" id="clearContactsBtn" hidden>ביטול</button></div>
+ <div class="notice">הערה: אתר אינטרנט אינו יכול לקרוא את כל אנשי הקשר באייפון ישירות. צריך לייצא מהם קובץ VCF ולבחור אותו כאן. אנשי קשר ללא שנת לידה מלאה לא ייובאו, כי אי אפשר לחשב עבורם גיל מדויק.</div>
 </section>
 
 <section class="panel">
  <div class="top"><h2>🎁 ימי ההולדת הקרובים</h2><span class="pill" id="nextYear"></span></div>
  <div class="toolbar"><input id="search" placeholder="חיפוש לפי שם..."><button class="secondary" id="notifyBtn">🔔 הפעל תזכורות</button></div>
  <div id="list"></div>
+</section>
+
+<section class="panel" id="greetingStudio">
+ <h2>💌 סטודיו לברכות יום הולדת</h2>
+ <p class="note">בחר אדם, כתוב ברכה אישית, בחר סגנון וצפה בכרטיס מונפש. אפשר להוריד את הכרטיס כקובץ HTML ולשלוח אותו.</p>
+ <div class="greeting-controls">
+  <label>למי הברכה?<select id="greetingPerson"><option value="">בחר אדם מהרשימה</option></select></label>
+  <label>סגנון הכרטיס<select id="greetingStyle"><option value="confetti">קונפטי צבעוני</option><option value="elegant">אלגנטי וזהוב</option><option value="party">מסיבת בלונים</option></select></label>
+ </div>
+ <label class="greeting-message-label">הברכה האישית<textarea id="greetingText" rows="4" maxlength="500" placeholder="לדוגמה: מאחל לך שנה מלאה בשמחה, אהבה והפתעות טובות! 🎉"></textarea></label>
+ <div id="greetingPreview" class="greeting-card theme-confetti"><div class="greeting-decor">🎈 ✨ 🎂 ✨ 🎈</div><div class="greeting-kicker">יום הולדת שמח</div><div id="previewName" class="greeting-name">השם יופיע כאן</div><div id="previewMessage" class="greeting-copy">הברכה שלך תופיע כאן</div><div class="greeting-sign">באהבה 💜</div></div>
+ <div class="actions"><button type="button" id="saveGreeting">שמור ברכה לאדם הזה</button><button type="button" class="secondary" id="downloadGreeting">הורד כרטיס מונפש</button><button type="button" class="secondary" id="shareGreeting">שתף כרטיס</button></div>
+ <div class="note" id="greetingStatus" aria-live="polite" style="margin-top:10px">הכרטיס נוצר במכשיר שלך. להורדה ולשיתוף אין צורך להעלות את פרטי יום ההולדת לשרת.</div>
+</section>
+
+
+
+<section class="panel" id="avatarStudio">
+ <h2>🧑‍🎨 סטודיו האווטארים</h2>
+ <p class="note">צור דמות מצוירת מאפס או העלה תמונה והפוך אותה לפורטרט בסגנון קומיקס. אפשר לשמור אווטאר אישי לכל אדם ברשימה.</p>
+ <label>למי יוצרים אווטאר?<select id="avatarPerson"><option value="">בחר אדם מהרשימה</option></select></label>
+ <div class="avatar-studio" style="margin-top:14px">
+  <div class="avatar-preview-wrap">
+   <div id="avatarBuilderPreview" class="avatar-preview">
+    <div class="avatar-head"><div class="avatar-hair"></div><div class="avatar-eyes">● ●</div><div class="avatar-mouth">⌣</div><div class="avatar-accessory"></div></div><div class="avatar-body"></div>
+   </div>
+   <div id="avatarPhotoPreview" hidden></div>
+   <b id="avatarPreviewName">הדמות שלך</b>
+  </div>
+  <div>
+   <div class="avatar-controls">
+    <label>גוון עור<select id="avSkin"><option value="#f5d0b5">בהיר</option><option value="#d99b72" selected>בינוני</option><option value="#a96745">שזוף</option><option value="#70452f">כהה</option></select></label>
+    <label>סגנון שיער<select id="avHair"><option value="short">קצר</option><option value="curly">מתולתל</option><option value="long">ארוך</option><option value="bald">קרחת</option></select></label>
+    <label>צבע שיער<select id="avHairColor"><option value="#38251f">חום כהה</option><option value="#171717">שחור</option><option value="#b98235">בלונד</option><option value="#a94d3d">ג'ינג'י</option><option value="#777777">אפור</option><option value="#d95ca8">ורוד</option></select></label>
+    <label>חולצה<select id="avShirt"><option value="#7438a8">סגול</option><option value="#d64b73">ורוד</option><option value="#087e8b">טורקיז</option><option value="#26345f">כחול</option><option value="#287a58">ירוק</option><option value="#f0a52b">צהוב</option></select></label>
+    <label>משקפיים<select id="avGlasses"><option value="">ללא</option><option value="👓">משקפיים</option><option value="🕶️">משקפי שמש</option></select></label>
+    <label>אביזר<select id="avProp"><option value="">ללא</option><option value="👑">כתר</option><option value="🎧">אוזניות</option><option value="🎩">כובע</option><option value="✨">ניצוץ</option></select></label>
+   </div>
+   <div class="actions" style="margin-top:12px">
+    <button type="button" id="saveAvatar">שמור אווטאר לאדם</button>
+    <button type="button" class="secondary" id="resetAvatar">איפוס עיצוב</button>
+   </div>
+  </div>
+ </div>
+ <div class="divider"></div>
+ <h3>📸 הפיכת תמונה לאווטאר קומיקס</h3>
+ <p class="note">העלה תמונה ברורה של אדם אחד. העיבוד מתבצע במכשיר שלך באמצעות אפקט צבעוני בסגנון קומיקס.</p>
+ <label>בחירת תמונה<input type="file" id="avatarPhotoInput" accept="image/*"></label>
+ <div class="actions" style="margin-top:12px">
+  <button type="button" id="savePhotoAvatar">שמור תמונת קומיקס לאדם</button>
+  <button type="button" class="secondary" id="clearPhotoAvatar">חזור לבניית דמות</button>
+ </div>
+ <canvas id="avatarCanvas" width="420" height="420" hidden></canvas>
+ <div class="note" id="avatarStatus" aria-live="polite">האווטאר נשמר בנתוני האתר בדפדפן המקומי שלך. מומלץ לייצא גיבוי אחרי יצירת דמויות.</div>
+</section>
+
+<section class="panel" id="comicStudio">
+ <h2>💥 סטודיו לקומיקס יום הולדת</h2>
+ <p class="note">יוצרים ברכת קומיקס בארבעה פריימים, עם דמות מצוירת או תמונה אישית שעוברת עיבוד בסגנון קומיקס. התמונה מעובדת בדפדפן שלך ואינה נשלחת לשרת.</p>
+ <div class="comic-controls">
+  <label>למי הקומיקס?<select id="comicPerson"><option value="">בחר אדם מהרשימה</option></select></label>
+  <label>דמות מצוירת<select id="comicAvatar"><option value="🦸">גיבור/ת על 🦸</option><option value="👑">כוכב/ת 👑</option><option value="🕺">רוקד/ת 🕺</option><option value="🧙">קוסם/ת 🧙</option><option value="🐱">חתול חוגג 🐱</option><option value="🤩">כוכב/ת המסיבה 🤩</option></select></label>
+  <label>תמונה אישית (לא חובה)<input id="comicPhoto" type="file" accept="image/*"></label>
+  <label>כותרת הקומיקס<input id="comicHeadline" maxlength="70" value="היום שבו האגדה נולדה!"></label>
+ </div>
+ <div class="comic-controls" style="margin-top:12px">
+  <label>פריים 1 – הפתיחה<textarea id="comicLine1" maxlength="120">יום רגיל? ממש לא!</textarea></label>
+  <label>פריים 2 – ההפתעה<textarea id="comicLine2" maxlength="120">כולם מתכוננים לחגיגה הגדולה...</textarea></label>
+  <label>פריים 3 – רגע השיא<textarea id="comicLine3" maxlength="120">הכוכב/ת של היום הגיע/ה!</textarea></label>
+  <label>פריים 4 – הברכה<textarea id="comicLine4" maxlength="160">יום הולדת שמח! שתהיה שנה מופלאה! 🎉</textarea></label>
+ </div>
+ <div class="comic-stage" id="comicPreview">
+  <div class="comic-title" id="comicTitlePreview">היום שבו האגדה נולדה!</div>
+  <div class="comic-panels">
+   <div class="comic-panel"><div class="comic-caption">פרק 1</div><div class="comic-avatar comic-avatar-preview">🦸</div><div class="comic-bubble" id="comicPreview1">יום רגיל? ממש לא!</div></div>
+   <div class="comic-panel"><div class="comic-caption">פרק 2</div><div class="comic-avatar comic-avatar-preview">🦸</div><div class="comic-bubble" id="comicPreview2">כולם מתכוננים לחגיגה הגדולה...</div></div>
+   <div class="comic-panel"><div class="comic-caption">פרק 3</div><div class="comic-avatar comic-avatar-preview">🦸</div><div class="comic-bubble" id="comicPreview3">הכוכב/ת של היום הגיע/ה!</div></div>
+   <div class="comic-panel"><div class="comic-caption">הסוף הטוב!</div><div class="comic-avatar comic-avatar-preview">🦸</div><div class="comic-bubble" id="comicPreview4">יום הולדת שמח! שתהיה שנה מופלאה! 🎉</div></div>
+  </div>
+ </div>
+ <div class="actions">
+  <button type="button" id="saveComic">שמור את טקסט הקומיקס</button>
+  <button type="button" class="secondary" id="downloadComic">הורד קומיקס לשיתוף</button>
+  <button type="button" class="secondary" id="shareComic">שתף קומיקס</button>
+ </div>
+ <div class="note" id="comicStatus" aria-live="polite">אפשר לבחור תמונה אישית או להשתמש בדמות מצוירת מוכנה. ייצוא הקומיקס יוצר קובץ HTML שאפשר לפתוח בדפדפן.</div>
 </section>
 
 <section class="panel">
@@ -111,6 +243,12 @@ footer{text-align:center;color:var(--muted);font-size:12px;margin-top:22px}
   <label class="color-field">צבע הדגשה <input type="color" id="colorAccent" value="#fce7f3"></label>
  </div>
  <div class="theme-actions"><button type="button" id="saveTheme">שמור את העיצוב</button><button type="button" class="secondary" id="resetTheme">חזור לעיצוב המקורי</button></div>
+</section>
+<section class="panel">
+ <h2>🎊 הנפשות ואפקטים</h2>
+ <label class="motion-toggle"><input type="checkbox" id="motionEnabled" checked> הפעל הנפשות באתר (קונפטי, בלונים ואפקטים חגיגיים)</label>
+ <div class="actions"><button type="button" id="previewCelebration">הצג אפקט לדוגמה 🎉</button></div>
+ <p class="note">אפשר לכבות את ההנפשות בכל רגע. ההעדפה נשמרת בדפדפן הזה.</p>
 </section>
 </div>
 <footer>Birthday Club · נבנה במיוחד בשבילך 💜</footer>
@@ -172,10 +310,10 @@ function render(){
  filtered.forEach(p=>{
   const days=daysUntil(p.date),when=days===0?'היום!':days===1?'מחר':`בעוד ${days} ימים`;
   const el=document.createElement('div');el.className='birthday';
-  const av=document.createElement('div');av.className='avatar';av.textContent='🎂';
+  const av=document.createElement('div');av.className='avatar';if(p.avatarData){const img=document.createElement('img');img.src=p.avatarData;img.alt='';img.style.cssText='width:58px;height:58px;object-fit:cover;border-radius:50%';av.append(img);}else if(p.avatar){av.textContent=p.avatar.prop||'🙂';}else{av.textContent='🎂';}
   const person=document.createElement('div');person.className='person';
   const name=document.createElement('b');name.textContent=p.name;
-  const meta=document.createElement('div');meta.className='meta';meta.textContent=`${fmt(p.date)} · ${zodiac(p.date)}${p.notes?' · '+p.notes:''}`;
+  const meta=document.createElement('div');meta.className='meta';meta.textContent=`${fmt(p.date)} · ${zodiac(p.date)}${p.relationship?' · '+p.relationship:''}${p.notes?' · '+p.notes:''}`;
   person.append(name,meta);
   const age=document.createElement('div');age.className='age';
   const strong=document.createElement('strong');strong.textContent=`גיל ${ageAtNext(p.date)}`;
@@ -183,8 +321,8 @@ function render(){
   age.append(strong,span);
   const actions=document.createElement('div');actions.style.display='flex';actions.style.gap='5px';
   const edit=document.createElement('button');edit.className='small secondary';edit.textContent='עריכה';edit.onclick=()=>editPerson(p.id);
-  const del=document.createElement('button');del.className='small danger';del.textContent='מחיקה';del.onclick=()=>{if(confirm(`למחוק את ${p.name} מהרשימה?`)){people=people.filter(x=>x.id!==p.id);save();render();}};
-  actions.append(edit,del);el.append(av,person,age,actions);$('list').append(el);
+  const del=document.createElement('button');del.className='small danger';del.textContent='מחיקה';del.onclick=()=>{if(confirm(`למחוק את ${p.name} מהרשימה?`)){people=people.filter(x=>x.id!==p.id);save();render();refreshGreetingPeople();}};
+  const greet=document.createElement('button');greet.className='small';greet.textContent='ברכה 💌';greet.onclick=()=>openGreeting(p.id);actions.append(greet,edit,del);el.append(av,person,age,actions);$('list').append(el);
  });
  const halfSorted=[...people].sort((a,b)=>halfDaysUntil(a.date)-halfDaysUntil(b.date));
  $('halfList').innerHTML=halfSorted.length?'':'<div class="empty">חצאי ימי ההולדת יופיעו כאן אחרי הוספת אנשים.</div>';
@@ -204,11 +342,102 @@ function render(){
  });
 }
 function resetForm(){editing=null;$('personForm').reset();$('saveBtn').textContent='הוסף לרשימה 🎉';$('cancelEdit').hidden=true;}
-function editPerson(id){const p=people.find(x=>x.id===id);if(!p)return;editing=id;$('name').value=p.name;$('date').value=p.date;$('notes').value=p.notes||'';$('saveBtn').textContent='שמור שינויים';$('cancelEdit').hidden=false;window.scrollTo({top:0,behavior:'smooth'});}
-$('personForm').addEventListener('submit',e=>{e.preventDefault();const p={id:editing||String(Date.now()),name:$('name').value.trim(),date:$('date').value,notes:$('notes').value.trim()};if(editing)people=people.map(x=>x.id===editing?p:x);else people.push(p);save();resetForm();render();});
+function editPerson(id){const p=people.find(x=>x.id===id);if(!p)return;editing=id;$('name').value=p.name;$('date').value=p.date;$('relationship').value=p.relationship||'';$('notes').value=p.notes||'';$('saveBtn').textContent='שמור שינויים';$('cancelEdit').hidden=false;window.scrollTo({top:0,behavior:'smooth'});}
+$('personForm').addEventListener('submit',e=>{e.preventDefault();const p={id:editing||String(Date.now()),name:$('name').value.trim(),date:$('date').value,relationship:$('relationship').value,notes:$('notes').value.trim()};if(editing)people=people.map(x=>x.id===editing?p:x);else people.push(p);save();resetForm();render();refreshGreetingPeople();});
 $('cancelEdit').onclick=resetForm;$('search').oninput=render;
+const MOTION_KEY='birthday-club-motion-v1';
+let selectedGreetingId=null;
+function refreshGreetingPeople(){const select=$('greetingPerson'),old=select.value;select.innerHTML='<option value="">בחר אדם מהרשימה</option>';people.slice().sort((a,b)=>a.name.localeCompare(b.name,'he')).forEach(p=>{const o=document.createElement('option');o.value=p.id;o.textContent=p.name;select.append(o);});if(people.some(p=>p.id===old))select.value=old;}
+function updateGreetingPreview(){const p=people.find(x=>x.id===$('greetingPerson').value);$('previewName').textContent=p?p.name:'השם יופיע כאן';$('previewMessage').textContent=$('greetingText').value.trim()||'הברכה שלך תופיע כאן';$('greetingPreview').className='greeting-card theme-'+$('greetingStyle').value;}
+function openGreeting(id){selectedGreetingId=id;refreshGreetingPeople();$('greetingPerson').value=id;const p=people.find(x=>x.id===id);$('greetingText').value=p?.greeting||`יום הולדת שמח ${p?.name||''}! מאחל לך שנה מלאה בשמחה, אהבה, בריאות והפתעות טובות. 🎉`;$('greetingStyle').value=p?.greetingStyle||'confetti';updateGreetingPreview();$('greetingStudio').scrollIntoView({behavior:'smooth',block:'start'});}
+$('greetingPerson').onchange=()=>{selectedGreetingId=$('greetingPerson').value;const p=people.find(x=>x.id===selectedGreetingId);$('greetingText').value=p?.greeting||'';$('greetingStyle').value=p?.greetingStyle||'confetti';updateGreetingPreview();};
+$('greetingText').oninput=updateGreetingPreview;$('greetingStyle').onchange=updateGreetingPreview;
+$('saveGreeting').onclick=()=>{const p=people.find(x=>x.id===$('greetingPerson').value);if(!p){alert('בחר אדם מהרשימה תחילה.');return;}p.greeting=$('greetingText').value.trim();p.greetingStyle=$('greetingStyle').value;save();$('greetingStatus').textContent=`הברכה נשמרה עבור ${p.name}.`;};
+function greetingDocument(){const p=people.find(x=>x.id===$('greetingPerson').value);if(!p){alert('בחר אדם מהרשימה תחילה.');return null;}const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const name=esc(p.name),message=esc($('greetingText').value.trim()||`יום הולדת שמח ${p.name}! מאחל לך שנה נפלאה! 🎉`).replace(/\n/g,'<br>'),style=$('greetingStyle').value;const bg=style==='elegant'?'linear-gradient(135deg,#29213e,#765b45)':style==='party'?'linear-gradient(135deg,#d8f6ff,#ffe3f2 55%,#fff0c9)':'linear-gradient(135deg,#fff0f7,#eee8ff 55%,#e7f8ff)';const color=style==='elegant'?'#fff1c9':'#553071';return `<!doctype html><html lang="he" dir="rtl"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>יום הולדת שמח ${name}</title><style>*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:#f7f3fa;font-family:Arial,sans-serif}.card{position:relative;overflow:hidden;text-align:center;width:min(90vw,760px);min-height:420px;padding:50px 25px;border-radius:30px;background:${bg};color:${color};display:flex;flex-direction:column;justify-content:center;align-items:center;gap:20px;box-shadow:0 20px 60px #0002;animation:pop .9s ease both}.decor{font-size:46px;animation:bob 2s ease-in-out infinite}.kicker{letter-spacing:3px;font-weight:bold}.name{font-size:clamp(36px,8vw,64px);font-weight:900}.message{font-size:clamp(19px,4vw,27px);line-height:1.7;white-space:normal}.sign{font-weight:bold;font-size:20px}.float{position:absolute;bottom:-80px;font-size:48px;animation:rise 7s linear infinite}.f2{left:15%;animation-delay:2s}.f3{right:18%;animation-delay:4s}@keyframes pop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}@keyframes bob{50%{transform:translateY(-12px)}}@keyframes rise{to{transform:translateY(-120vh);opacity:0}}@media(prefers-reduced-motion:reduce){*{animation:none!important}}</style><body><main class="card"><div class="float">🎈</div><div class="float f2">🎉</div><div class="float f3">🎈</div><div class="decor">🎈 ✨ 🎂 ✨ 🎈</div><div class="kicker">יום הולדת שמח</div><div class="name">${name}</div><div class="message">${message}</div><div class="sign">באהבה 💜</div></main></body></html>`;}
+$('downloadGreeting').onclick=()=>{const doc=greetingDocument();if(!doc)return;const blob=new Blob([doc],{type:'text/html;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='birthday-greeting.html';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('greetingStatus').textContent='הכרטיס המונפש ירד למחשב. אפשר לשלוח את קובץ ה-HTML ולפתוח אותו בדפדפן.';};
+$('shareGreeting').onclick=async()=>{const doc=greetingDocument();if(!doc)return;const file=new File([doc],'birthday-greeting.html',{type:'text/html'});if(navigator.canShare?.({files:[file]})){try{await navigator.share({files:[file],title:'ברכת יום הולדת'});$('greetingStatus').textContent='חלון השיתוף נפתח.';}catch(e){}}else{$('downloadGreeting').click();$('greetingStatus').textContent='הדפדפן הזה לא תומך בשיתוף קובץ ישירות. הורדנו את הכרטיס כדי שתוכל לצרף אותו להודעה.';}};
+
+
+// Personal avatar studio
+let processedAvatarData='';
+function refreshAvatarPeople(){const s=$('avatarPerson'),old=s.value;s.innerHTML='<option value="">בחר אדם מהרשימה</option>';people.slice().sort((a,b)=>a.name.localeCompare(b.name,'he')).forEach(p=>{const o=document.createElement('option');o.value=p.id;o.textContent=p.name;s.append(o);});if(people.some(p=>p.id===old))s.value=old;}
+function avatarSettings(){return {skin:$('avSkin').value,hair:$('avHair').value,hairColor:$('avHairColor').value,shirt:$('avShirt').value,glasses:$('avGlasses').value,prop:$('avProp').value};}
+function drawAvatar(){const s=avatarSettings(),root=$('avatarBuilderPreview');root.style.setProperty('--skin',s.skin);root.style.setProperty('--hair',s.hairColor);root.style.setProperty('--shirt',s.shirt);const hair=root.querySelector('.avatar-hair');hair.style.display=s.hair==='bald'?'none':'block';hair.style.height=s.hair==='long'?'100px':s.hair==='curly'?'52px':'43px';hair.style.borderRadius=s.hair==='curly'?'50%':'60% 60% 30% 25%';root.querySelector('.avatar-eyes').textContent=s.glasses||'● ●';root.querySelector('.avatar-accessory').textContent=s.prop;root.hidden=false;$('avatarPhotoPreview').hidden=true;}
+$('avatarPerson').onchange=()=>{const p=people.find(x=>x.id===$('avatarPerson').value);$('avatarPreviewName').textContent=p?.name||'הדמות שלך';processedAvatarData='';if(p?.avatarData){$('avatarPhotoPreview').innerHTML=`<img class="avatar-photo-result" src="${p.avatarData}" alt="האווטאר השמור">`;$('avatarPhotoPreview').hidden=false;$('avatarBuilderPreview').hidden=true;}else{if(p?.avatar){Object.entries(p.avatar).forEach(([k,v])=>{const ids={skin:'avSkin',hair:'avHair',hairColor:'avHairColor',shirt:'avShirt',glasses:'avGlasses',prop:'avProp'};if(ids[k])$(ids[k]).value=v;});}drawAvatar();}};
+['avSkin','avHair','avHairColor','avShirt','avGlasses','avProp'].forEach(id=>$(id).addEventListener('change',drawAvatar));
+$('saveAvatar').onclick=()=>{const p=people.find(x=>x.id===$('avatarPerson').value);if(!p){alert('בחר אדם מהרשימה תחילה.');return;}p.avatar=avatarSettings();delete p.avatarData;save();render();$('avatarStatus').textContent=`האווטאר המצויר נשמר עבור ${p.name}.`;};
+$('resetAvatar').onclick=()=>{['avSkin','avHair','avHairColor','avShirt','avGlasses','avProp'].forEach((id,i)=>$(id).selectedIndex=[1,0,0,0,0,0][i]);drawAvatar();};
+$('avatarPhotoInput').onchange=async e=>{const file=e.target.files?.[0];if(!file)return;if(!file.type.startsWith('image/')){alert('יש לבחור קובץ תמונה.');return;}if(file.size>8*1024*1024){alert('התמונה גדולה מדי. בחר תמונה עד 8MB.');e.target.value='';return;}const img=new Image(),url=URL.createObjectURL(file);img.onload=()=>{const c=$('avatarCanvas'),ctx=c.getContext('2d');const side=Math.min(img.width,img.height),sx=(img.width-side)/2,sy=(img.height-side)/2;ctx.clearRect(0,0,420,420);ctx.filter='contrast(1.35) saturate(1.5)';ctx.drawImage(img,sx,sy,side,side,0,0,420,420);ctx.filter='none';const im=ctx.getImageData(0,0,420,420),d=im.data;for(let i=0;i<d.length;i+=4){for(let k=0;k<3;k++)d[i+k]=Math.round(d[i+k]/48)*48;}ctx.putImageData(im,0,0);processedAvatarData=c.toDataURL('image/jpeg',.86);$('avatarPhotoPreview').innerHTML=`<img class="avatar-photo-result" src="${processedAvatarData}" alt="תמונת קומיקס">`;$('avatarPhotoPreview').hidden=false;$('avatarBuilderPreview').hidden=true;$('avatarStatus').textContent='תמונת הקומיקס מוכנה. אפשר לשמור אותה לאדם שנבחר.';URL.revokeObjectURL(url);};img.onerror=()=>{alert('לא ניתן לפתוח את התמונה.');URL.revokeObjectURL(url);};img.src=url;};
+$('savePhotoAvatar').onclick=()=>{const p=people.find(x=>x.id===$('avatarPerson').value);if(!p){alert('בחר אדם מהרשימה תחילה.');return;}if(!processedAvatarData){alert('העלה תמונה והמתן לעיבוד שלה.');return;}p.avatarData=processedAvatarData;delete p.avatar;save();render();$('avatarStatus').textContent=`תמונת הקומיקס נשמרה עבור ${p.name}.`;};
+$('clearPhotoAvatar').onclick=()=>{processedAvatarData='';$('avatarPhotoInput').value='';$('avatarPhotoPreview').hidden=true;drawAvatar();};
+refreshAvatarPeople();drawAvatar();
+
+// Comic greeting studio
+let comicPhotoData='';
+function refreshComicPeople(){const s=$('comicPerson'),old=s.value;s.innerHTML='<option value="">בחר אדם מהרשימה</option>';people.slice().sort((a,b)=>a.name.localeCompare(b.name,'he')).forEach(p=>{const o=document.createElement('option');o.value=p.id;o.textContent=p.name;s.append(o);});if(people.some(p=>p.id===old))s.value=old;}
+function comicValues(){return {headline:$('comicHeadline').value.trim()||'היום שבו האגדה נולדה!',lines:[1,2,3,4].map(i=>$('comicLine'+i).value.trim()),avatar:$('comicAvatar').value};}
+function updateComicPreview(){const v=comicValues();const selected=people.find(x=>x.id===$('comicPerson').value);if(selected?.avatarData)comicPhotoData=selected.avatarData;$('comicTitlePreview').textContent=v.headline;v.lines.forEach((line,i)=>$('comicPreview'+(i+1)).textContent=line||'...');document.querySelectorAll('.comic-avatar-preview').forEach(el=>{if(comicPhotoData){el.innerHTML='';const img=document.createElement('img');img.src=comicPhotoData;img.className='comic-photo';el.append(img);}else{el.textContent=v.avatar;}});}
+$('comicPerson').onchange=()=>{const p=people.find(x=>x.id===$('comicPerson').value);if(p?.comic){$('comicHeadline').value=p.comic.headline||'היום שבו האגדה נולדה!';p.comic.lines?.forEach((v,i)=>$('comicLine'+(i+1)).value=v);$('comicAvatar').value=p.comic.avatar||'🦸';}else{$('comicHeadline').value='היום שבו האגדה נולדה!';$('comicLine1').value='יום רגיל? ממש לא!';$('comicLine2').value='כולם מתכוננים לחגיגה הגדולה...';$('comicLine3').value='הכוכב/ת של היום הגיע/ה!';$('comicLine4').value='יום הולדת שמח! שתהיה שנה מופלאה! 🎉';}comicPhotoData='';$('comicPhoto').value='';updateComicPreview();};
+['comicHeadline','comicLine1','comicLine2','comicLine3','comicLine4','comicAvatar'].forEach(id=>$(id).addEventListener('input',updateComicPreview));
+$('comicPhoto').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;if(!f.type.startsWith('image/')){alert('יש לבחור קובץ תמונה.');return;}if(f.size>5*1024*1024){alert('התמונה גדולה מדי. נא לבחור תמונה עד 5MB.');e.target.value='';return;}const reader=new FileReader();reader.onload=()=>{comicPhotoData=String(reader.result);updateComicPreview();};reader.readAsDataURL(f);};
+$('saveComic').onclick=()=>{const p=people.find(x=>x.id===$('comicPerson').value);if(!p){alert('בחר אדם מהרשימה תחילה.');return;}p.comic=comicValues();save();$('comicStatus').textContent=`טקסט הקומיקס נשמר עבור ${p.name}. התמונה האישית אינה נשמרת ברשומה.`;};
+function comicDocument(){const p=people.find(x=>x.id===$('comicPerson').value);if(!p){alert('בחר אדם מהרשימה תחילה.');return null;}const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const v=comicValues(),name=esc(p.name),avatar=esc(v.avatar),photo=comicPhotoData?`<img class="portrait" src="${comicPhotoData}" alt="איור קומיקס">`:'';const panels=v.lines.map((line,i)=>`<article class="panel p${i+1}"><small>${['פרק 1','פרק 2','פרק 3','הסוף הטוב!'][i]}</small>${photo||`<div class="avatar">${avatar}</div}`}<div class="bubble">${esc(line||'...')}</div></article>`).join('');return `<!doctype html><html lang="he" dir="rtl"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(v.headline)} – ${name}</title><style>*{box-sizing:border-box}body{margin:0;padding:22px;background:#f6efff;font-family:Arial,sans-serif;color:#211d2b}.wrap{max-width:900px;margin:auto;background:#fffdf5;padding:18px;border:4px solid #24202b;border-radius:20px;box-shadow:9px 9px 0 #24202b}.title{text-align:center;font-size:clamp(26px,5vw,44px);font-weight:1000;margin:12px 0 20px;text-shadow:2px 2px #f4c7dc}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.panel{min-height:230px;border:3px solid #24202b;border-radius:10px;padding:14px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;text-align:center;background:radial-gradient(#b8a9cf 1px,transparent 1.5px),#f5edff;background-size:10px 10px}.p2{background:radial-gradient(#f3a7b8 1px,transparent 1.5px),#fff0f3;background-size:10px 10px}.p3{background:radial-gradient(#8ccfc2 1px,transparent 1.5px),#eafff8;background-size:10px 10px}.p4{background:radial-gradient(#e9c36e 1px,transparent 1.5px),#fff8df;background-size:10px 10px}.avatar{font-size:75px}.portrait{width:120px;height:120px;object-fit:cover;border:4px solid #24202b;border-radius:50%;filter:contrast(1.2) saturate(1.35)}small{font-weight:bold}.bubble{background:white;border:2px solid #24202b;border-radius:18px;padding:10px 14px;font-weight:bold;line-height:1.5;box-shadow:3px 3px 0 #24202b}.footer{text-align:center;font-weight:bold;margin-top:18px}@media(max-width:560px){.grid{gap:7px}.panel{min-height:185px;padding:8px}.portrait{width:88px;height:88px}.avatar{font-size:55px}}@media(prefers-reduced-motion:no-preference){.panel{animation:pop .55s ease both}.panel:nth-child(2){animation-delay:.12s}.panel:nth-child(3){animation-delay:.24s}.panel:nth-child(4){animation-delay:.36s}@keyframes pop{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}}</style><body><main class="wrap"><h1 class="title">${esc(v.headline)}</h1><div class="grid">${panels}</div><div class="footer">ובכיכובו/ה של ${name} · יום הולדת שמח! 🎉</div></main></body></html>`;}
+$('downloadComic').onclick=()=>{const doc=comicDocument();if(!doc)return;const blob=new Blob([doc],{type:'text/html;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='birthday-comic.html';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('comicStatus').textContent='קובץ הקומיקס ירד למחשב. אפשר לשלוח אותו ולפתוח בדפדפן.';};
+$('shareComic').onclick=async()=>{const doc=comicDocument();if(!doc)return;const file=new File([doc],'birthday-comic.html',{type:'text/html'});if(navigator.canShare?.({files:[file]})){try{await navigator.share({files:[file],title:'קומיקס יום הולדת'});$('comicStatus').textContent='חלון השיתוף נפתח.';}catch(e){}}else{$('downloadComic').click();}};
+refreshComicPeople();updateComicPreview();
+function celebrate(){if(localStorage.getItem(MOTION_KEY)==='off')return;const layer=document.createElement('div');layer.className='confetti-layer';document.body.append(layer);const colors=['#e879f9','#fbbf24','#34d399','#60a5fa','#fb7185','#a78bfa'];for(let i=0;i<90;i++){const piece=document.createElement('i');piece.className='confetti-piece';piece.style.left=Math.random()*100+'%';piece.style.background=colors[i%colors.length];piece.style.animationDelay=Math.random()*.9+'s';piece.style.transform=`rotate(${Math.random()*180}deg)`;layer.append(piece);}['🎈','🎈','🎉'].forEach((emoji,i)=>{const b=document.createElement('div');b.className='balloon-float';b.textContent=emoji;b.style.left=(15+i*32)+'%';b.style.animationDelay=(i*.5)+'s';document.body.append(b);setTimeout(()=>b.remove(),6500);});setTimeout(()=>layer.remove(),5000);}
+$('motionEnabled').checked=localStorage.getItem(MOTION_KEY)!=='off';$('motionEnabled').onchange=()=>{localStorage.setItem(MOTION_KEY,$('motionEnabled').checked?'on':'off');};$('previewCelebration').onclick=()=>{if(!$('motionEnabled').checked){$('motionEnabled').checked=true;localStorage.setItem(MOTION_KEY,'on');}celebrate();};
+function maybeCelebrateBirthday(){const today=new Date();if(localStorage.getItem(MOTION_KEY)==='off')return;const todays=people.filter(p=>{const d=dateParts(p.date);return d.m===today.getMonth()+1&&d.d===today.getDate();});if(todays.length){const key='birthday-club-celebrated-'+today.toDateString();if(!sessionStorage.getItem(key)){celebrate();sessionStorage.setItem(key,'1');}}}
 $('exportBtn').onclick=()=>{const blob=new Blob([JSON.stringify(people,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='birthday-club-backup.json';a.click();URL.revokeObjectURL(url);};
 $('importFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const data=JSON.parse(await f.text());if(!Array.isArray(data)||!data.every(p=>p.name&&/^\d{4}-\d{2}-\d{2}$/.test(p.date)))throw Error();if(confirm('ייבוא הגיבוי יחליף את הרשימה הנוכחית. להמשיך?')){people=data;save();render();}}catch(err){alert('קובץ הגיבוי אינו תקין.');}e.target.value='';};
+// vCard import is processed locally in this browser. No contact file is uploaded.
+let contactsPending=[];
+function unescapeVCard(value){return value.replace(/\\n/gi,' ').replace(/\\,/g,',').replace(/\\;/g,';').replace(/\\\\/g,'\\').trim();}
+function unfoldVCard(text){return text.replace(/\r?\n[ \t]/g,'');}
+function vcardDate(value){
+ const v=value.trim().replace(/^"|"$/g,'');
+ let m=v.match(/^(\d{4})-(\d{2})-(\d{2})/); if(m)return `${m[1]}-${m[2]}-${m[3]}`;
+ m=v.match(/^(\d{4})(\d{2})(\d{2})$/); if(m)return `${m[1]}-${m[2]}-${m[3]}`;
+ return null;
+}
+function parseVCard(text){
+ const cards=unfoldVCard(text).split(/BEGIN:VCARD/i).slice(1); const found=[];
+ for(const card of cards){
+  const lines=card.split(/\r?\n/); let name='',fallbackName='',rawDate='';
+  for(const line of lines){
+   const idx=line.indexOf(':'); if(idx<0)continue;
+   const prop=line.slice(0,idx).split(';')[0].toUpperCase(),value=line.slice(idx+1);
+   if(prop==='FN')name=unescapeVCard(value);
+   else if(prop==='N'){const parts=value.split(';').map(unescapeVCard);fallbackName=[parts[1],parts[2],parts[0]].filter(Boolean).join(' ').trim();}
+   else if(prop==='BDAY')rawDate=value;
+  }
+  name=name||fallbackName; const date=vcardDate(rawDate);
+  if(name&&date){const [y,m,d]=date.split('-').map(Number);const check=new Date(y,m-1,d);if(check.getFullYear()===y&&check.getMonth()===m-1&&check.getDate()===d)found.push({id:'vcf-'+Math.random().toString(36).slice(2),name,date,notes:''});}
+ }
+ return found;
+}
+$('contactsFile').onchange=async e=>{
+ const file=e.target.files[0]; contactsPending=[]; $('importContactsBtn').hidden=true; $('clearContactsBtn').hidden=true; $('contactsPreview').textContent='';
+ if(!file)return;
+ try{
+  contactsPending=parseVCard(await file.text());
+  const unique=new Map(); contactsPending.forEach(p=>unique.set((p.name+'|'+p.date).toLowerCase(),p)); contactsPending=[...unique.values()];
+  const existing=new Set(people.map(p=>(p.name+'|'+p.date).toLowerCase()));
+  const fresh=contactsPending.filter(p=>!existing.has((p.name+'|'+p.date).toLowerCase()));
+  const skipped=contactsPending.length-fresh.length;
+  $('contactsImportStatus').textContent=`נמצאו ${contactsPending.length} אנשי קשר עם שם ותאריך לידה מלא. ${skipped?skipped+' כבר קיימים ברשימה. ':''}${fresh.length} חדשים לייבוא.`;
+  const preview=fresh.slice(0,40).map(p=>`${p.name} — ${p.date.slice(8,10)}/${p.date.slice(5,7)}/${p.date.slice(0,4)}`);
+  $('contactsPreview').textContent=preview.length?preview.join('\n')+(fresh.length>40?'\n…':''):'לא נמצאו רשומות חדשות. ייתכן שהקובץ לא כולל תאריכי BDAY עם שנת לידה.';
+  contactsPending=fresh; $('importContactsBtn').hidden=!fresh.length; $('clearContactsBtn').hidden=false;
+ }catch(err){$('contactsImportStatus').textContent='לא הצלחתי לקרוא את הקובץ. ודא שזה קובץ VCF תקין.';}
+};
+$('importContactsBtn').onclick=()=>{
+ if(!contactsPending.length)return;
+ if(!confirm(`להוסיף ${contactsPending.length} ימי הולדת לרשימה הקיימת? הרשומות הקיימות לא יימחקו.`))return;
+ const count=contactsPending.length; people=[...people,...contactsPending]; save(); render(); $('contactsImportStatus').textContent=`יובאו בהצלחה ${count} ימי הולדת למכשיר הזה.`; contactsPending=[]; $('contactsPreview').textContent=''; $('importContactsBtn').hidden=true; $('clearContactsBtn').hidden=true; $('contactsFile').value='';
+};
+$('clearContactsBtn').onclick=()=>{contactsPending=[];$('contactsFile').value='';$('contactsImportStatus').textContent='הייבוא בוטל.';$('contactsPreview').textContent='';$('importContactsBtn').hidden=true;$('clearContactsBtn').hidden=true;};
+
 $('notifyBtn').onclick=async()=>{if(!('Notification'in window)){alert('הדפדפן הזה אינו תומך בהתראות.');return;}const permission=await Notification.requestPermission();alert(permission==='granted'?'ההתראות אושרו. כל עוד האתר פתוח, הוא יבדוק תזכורות.':'לא ניתנה הרשאה להתראות.');};
 function checkReminders(){if(!('Notification'in window)||Notification.permission!=='granted')return;const now=new Date();if(now.getHours()<8||now.getHours()>10)return;const today=`${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`;people.forEach(p=>{[[daysUntil(p.date),'birthday'],[halfDaysUntil(p.date),'half']].forEach(([days,type])=>{if(![0,1,7].includes(days))return;const key=`${p.id}-${type}-${today}-${days}`;if(localStorage.getItem('birthday-notified-'+key))return;const timing=days===0?'היום!':days===1?'מחר!':'בעוד שבוע!';const title=type==='birthday'?'🎂 יום הולדת':'🎉 חצי יום הולדת';new Notification(`${title}: ${p.name}`,{body:type==='birthday'?`יום ההולדת ${timing} חוגגים גיל ${ageAtNext(p.date)}.`:`חצי יום ההולדת ${timing}`});localStorage.setItem('birthday-notified-'+key,'1');});});}
 document.querySelectorAll('[data-theme]').forEach(btn=>btn.addEventListener('click',()=>applyTheme(themes[btn.dataset.theme])));
@@ -228,6 +457,6 @@ function showPageTab(tab){
 }
 $('birthdaysTab').addEventListener('click',()=>showPageTab('birthdays'));
 $('designTab').addEventListener('click',()=>showPageTab('design'));
-render();checkReminders();setInterval(checkReminders,60000);
+render();refreshGreetingPeople();updateGreetingPreview();maybeCelebrateBirthday();checkReminders();setInterval(checkReminders,60000);
 </script>
 </body></html>

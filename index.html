@@ -6,18 +6,22 @@
 <meta name="theme-color" content="#7438a8">
 <title>Birthday Club 🎂</title>
 <style>
-:root{--purple:#7438a8;--pink:#fce7f3;--ink:#28213a;--muted:#766f83;--line:#eee8f3;--bg:#faf7fc}
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#fff7fb,#f5f0ff);font-family:Arial,"Segoe UI",sans-serif;color:var(--ink)}
+:root{--purple:#7438a8;--header2:#a34fba;--pink:#fce7f3;--ink:#28213a;--muted:#766f83;--line:#eee8f3;--bg:#faf7fc;--card:#ffffff}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,var(--bg),color-mix(in srgb,var(--bg),white 35%));font-family:Arial,"Segoe UI",sans-serif;color:var(--ink)}
 main{max-width:920px;margin:28px auto;padding:0 16px 40px}
-header{background:linear-gradient(120deg,#7136a4,#a34fba);color:white;border-radius:24px;padding:28px;box-shadow:0 14px 35px #66339924}
+header{background:linear-gradient(120deg,var(--purple),var(--header2));color:white;border-radius:24px;padding:28px;box-shadow:0 14px 35px #66339924}
 .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.brand{font-weight:800;letter-spacing:1px}.hero{font-size:clamp(28px,5vw,42px);font-weight:800;margin:20px 0 6px}.sub{opacity:.9}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}.stat{background:#ffffff22;border:1px solid #ffffff2c;border-radius:15px;padding:13px}.stat b{display:block;font-size:27px}.stat span{font-size:13px;opacity:.9}
 .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}.toolbar input{flex:1;min-width:180px}
 button,.filebtn{border:0;border-radius:12px;padding:12px 16px;background:var(--purple);color:white;font-weight:700;cursor:pointer;font-size:14px}
 button.secondary,.filebtn.secondary{background:#eee7f5;color:#563477}button.danger{background:#fff0f1;color:#b4233b}button.small{padding:8px 10px;font-size:12px}
 input{width:100%;padding:12px;border:1px solid #ddd3e7;border-radius:11px;font:inherit;background:white;color:var(--ink)}
-.panel{background:white;border:1px solid var(--line);border-radius:20px;padding:20px;margin-top:18px;box-shadow:0 8px 24px #39204a08}
-.panel h2{margin:0 0 14px;font-size:20px}.birthday{display:flex;align-items:center;gap:13px;padding:13px 0;border-bottom:1px solid var(--line)}.birthday:last-child{border:0}
+.page-tabs{display:flex;gap:8px;margin:18px 0 4px;padding:6px;background:var(--card);border:1px solid var(--line);border-radius:15px;box-shadow:0 5px 18px #39204a08}
+.page-tab{flex:1;background:transparent;color:var(--muted);border:1px solid transparent;padding:12px 16px;border-radius:11px}
+.page-tab.active{background:var(--purple);color:white;box-shadow:0 4px 12px #39204a18}
+[hidden]{display:none!important}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;margin-top:18px;box-shadow:0 8px 24px #39204a08}
+.theme-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.theme-option{display:flex;align-items:center;gap:8px;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);cursor:pointer}.swatches{display:flex;gap:3px}.swatches i{width:13px;height:13px;border-radius:50%;display:block}.color-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}.color-field{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 11px;border:1px solid var(--line);border-radius:12px;background:var(--card)}.color-field input[type=color]{width:42px;height:34px;padding:2px;border:0;background:transparent;cursor:pointer}.theme-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.panel h2{margin:0 0 14px;font-size:20px}.birthday{display:flex;align-items:center;gap:13px;padding:13px 0;border-bottom:1px solid var(--line)}.birthday:last-child{border:0}
 .avatar{width:48px;height:48px;border-radius:15px;background:var(--pink);display:grid;place-items:center;font-size:24px;flex:none}
 .person{flex:1;min-width:0}.person b{display:block;font-size:16px}.meta{font-size:13px;color:var(--muted);margin-top:4px}.age{text-align:left;white-space:nowrap}.age strong{display:block;font-size:17px}.age span{font-size:12px;color:var(--muted)}
 .pill{display:inline-block;padding:5px 9px;border-radius:20px;background:#f0e9fb;color:#63358a;font-size:12px;font-weight:700}
@@ -25,7 +29,7 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{font-size:13px;fo
 .empty{text-align:center;padding:28px;color:var(--muted)}.note{font-size:13px;line-height:1.6;color:var(--muted)}
 .notice{background:#fff8e8;border:1px solid #f5e3b6;border-radius:13px;padding:13px;font-size:13px;line-height:1.55;margin-top:14px}
 footer{text-align:center;color:var(--muted);font-size:12px;margin-top:22px}
-@media(max-width:560px){main{margin:12px auto}.stats{gap:7px}.stat{padding:10px}.stat b{font-size:22px}.panel{padding:15px}form{grid-template-columns:1fr}.wide{grid-column:auto}.age strong{font-size:15px}}
+@media(max-width:560px){.page-tabs{gap:5px}.page-tab{padding:10px 8px;font-size:13px}.theme-grid{grid-template-columns:1fr}.color-controls{grid-template-columns:1fr}main{margin:12px auto}.stats{gap:7px}.stat{padding:10px}.stat b{font-size:22px}.panel{padding:15px}form{grid-template-columns:1fr}.wide{grid-column:auto}.age strong{font-size:15px}}
 </style>
 </head>
 <body>
@@ -39,6 +43,15 @@ footer{text-align:center;color:var(--muted);font-size:12px;margin-top:22px}
   <div class="stat"><b id="monthCount">0</b><span>ב־30 הימים הקרובים</span></div>
  </div>
 </header>
+
+<nav class="page-tabs" aria-label="ניווט ראשי">
+ <button type="button" class="page-tab active" id="birthdaysTab" aria-selected="true">🎂 ימי ההולדת שלי</button>
+ <button type="button" class="page-tab" id="designTab" aria-selected="false">🎨 עיצוב העמוד</button>
+</nav>
+
+<div id="birthdaysView">
+
+
 
 <section class="panel">
  <h2>➕ הוספת יום הולדת</h2>
@@ -71,6 +84,35 @@ footer{text-align:center;color:var(--muted);font-size:12px;margin-top:22px}
  </div>
  <div class="notice">חשוב לגבי התזכורות: התראות דפדפן דורשות אישור שלך, ובדרך כלל אתר סטטי יכול לבדוק אותן רק כשהוא פתוח. כדי לקבל התראות אמינות גם כשהאתר סגור, כולל באייפון, צריך לפרסם את האתר בכתובת HTTPS ולהוסיף שירות Push/יומן מסונכרן.</div>
 </section>
+</div>
+
+<div id="designView" hidden>
+<section class="panel">
+ <h2>🎨 אפשרויות עיצוב העמוד</h2>
+ <div class="note">כאן אפשר לשנות את מראה Birthday Club. השינויים יוצגו באתר ויישמרו בדפדפן שלך.</div>
+</section>
+<section class="panel">
+ <h2>🎨 התאמת צבעים ועיצוב</h2>
+ <div class="note">בחר ערכת צבעים מוכנה או התאם בעצמך את צבעי האתר. הבחירה נשמרת בדפדפן שלך.</div>
+ <div class="theme-grid" id="themePresets">
+  <button type="button" class="theme-option" data-theme="purple"><span class="swatches"><i style="background:#7438a8"></i><i style="background:#a34fba"></i><i style="background:#faf7fc"></i></span>סגול חגיגי</button>
+  <button type="button" class="theme-option" data-theme="ocean"><span class="swatches"><i style="background:#087e8b"></i><i style="background:#21a6a1"></i><i style="background:#f0fbfc"></i></span>טורקיז ואוקיינוס</button>
+  <button type="button" class="theme-option" data-theme="sunset"><span class="swatches"><i style="background:#d64b73"></i><i style="background:#f08a4b"></i><i style="background:#fff7f0"></i></span>שקיעה ורודה</button>
+  <button type="button" class="theme-option" data-theme="forest"><span class="swatches"><i style="background:#287a58"></i><i style="background:#73a942"></i><i style="background:#f4faf2"></i></span>ירוק טבעי</button>
+  <button type="button" class="theme-option" data-theme="midnight"><span class="swatches"><i style="background:#26345f"></i><i style="background:#5869a8"></i><i style="background:#f2f4fc"></i></span>כחול לילה</button>
+  <button type="button" class="theme-option" data-theme="candy"><span class="swatches"><i style="background:#d83b9b"></i><i style="background:#8055d9"></i><i style="background:#fff3fa"></i></span>ממתקים</button>
+ </div>
+ <div class="color-controls">
+  <label class="color-field">צבע ראשי <input type="color" id="colorPrimary" value="#7438a8"></label>
+  <label class="color-field">צבע שני בכותרת <input type="color" id="colorHeader2" value="#a34fba"></label>
+  <label class="color-field">צבע רקע <input type="color" id="colorBackground" value="#faf7fc"></label>
+  <label class="color-field">צבע כרטיסים <input type="color" id="colorCard" value="#ffffff"></label>
+  <label class="color-field">צבע טקסט <input type="color" id="colorText" value="#28213a"></label>
+  <label class="color-field">צבע הדגשה <input type="color" id="colorAccent" value="#fce7f3"></label>
+ </div>
+ <div class="theme-actions"><button type="button" id="saveTheme">שמור את העיצוב</button><button type="button" class="secondary" id="resetTheme">חזור לעיצוב המקורי</button></div>
+</section>
+</div>
 <footer>Birthday Club · נבנה במיוחד בשבילך 💜</footer>
 </main>
 <script>
@@ -82,6 +124,19 @@ let people=[];
 try{people=JSON.parse(localStorage.getItem(KEY)||'null')||initial;localStorage.setItem(KEY,JSON.stringify(people));}catch(e){people=initial.slice();}
 let editing=null;
 const $=id=>document.getElementById(id);
+const THEME_KEY='birthday-club-theme-v1';
+const defaultTheme={primary:'#7438a8',header2:'#a34fba',background:'#faf7fc',card:'#ffffff',text:'#28213a',accent:'#fce7f3'};
+const themes={
+ purple:defaultTheme,
+ ocean:{primary:'#087e8b',header2:'#21a6a1',background:'#f0fbfc',card:'#ffffff',text:'#18343a',accent:'#d8f3f0'},
+ sunset:{primary:'#d64b73',header2:'#f08a4b',background:'#fff7f0',card:'#ffffff',text:'#40252b',accent:'#ffe1e8'},
+ forest:{primary:'#287a58',header2:'#73a942',background:'#f4faf2',card:'#ffffff',text:'#20382a',accent:'#e0f0d8'},
+ midnight:{primary:'#26345f',header2:'#5869a8',background:'#f2f4fc',card:'#ffffff',text:'#202943',accent:'#e0e6fb'},
+ candy:{primary:'#d83b9b',header2:'#8055d9',background:'#fff3fa',card:'#ffffff',text:'#3c2340',accent:'#ffe0f2'}
+};
+function applyTheme(t){const root=document.documentElement;root.style.setProperty('--purple',t.primary);root.style.setProperty('--header2',t.header2);root.style.setProperty('--bg',t.background);root.style.setProperty('--card',t.card);root.style.setProperty('--ink',t.text);root.style.setProperty('--pink',t.accent);$('colorPrimary').value=t.primary;$('colorHeader2').value=t.header2;$('colorBackground').value=t.background;$('colorCard').value=t.card;$('colorText').value=t.text;$('colorAccent').value=t.accent;}
+function readThemeInputs(){return {primary:$('colorPrimary').value,header2:$('colorHeader2').value,background:$('colorBackground').value,card:$('colorCard').value,text:$('colorText').value,accent:$('colorAccent').value};}
+function saveTheme(){const t=readThemeInputs();applyTheme(t);localStorage.setItem(THEME_KEY,JSON.stringify(t));}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(people));}catch(e){alert('לא ניתן לשמור בדפדפן הזה. מומלץ לייצא גיבוי.');}}
 function dateParts(s){const [y,m,d]=s.split('-').map(Number);return {y,m,d};}
 function nextDate(s){const {m,d}=dateParts(s),now=new Date();let x=new Date(now.getFullYear(),m-1,d);x.setHours(0,0,0,0);const t=new Date();t.setHours(0,0,0,0);if(x<t)x=new Date(now.getFullYear()+1,m-1,d);return x;}
@@ -156,6 +211,23 @@ $('exportBtn').onclick=()=>{const blob=new Blob([JSON.stringify(people,null,2)],
 $('importFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const data=JSON.parse(await f.text());if(!Array.isArray(data)||!data.every(p=>p.name&&/^\d{4}-\d{2}-\d{2}$/.test(p.date)))throw Error();if(confirm('ייבוא הגיבוי יחליף את הרשימה הנוכחית. להמשיך?')){people=data;save();render();}}catch(err){alert('קובץ הגיבוי אינו תקין.');}e.target.value='';};
 $('notifyBtn').onclick=async()=>{if(!('Notification'in window)){alert('הדפדפן הזה אינו תומך בהתראות.');return;}const permission=await Notification.requestPermission();alert(permission==='granted'?'ההתראות אושרו. כל עוד האתר פתוח, הוא יבדוק תזכורות.':'לא ניתנה הרשאה להתראות.');};
 function checkReminders(){if(!('Notification'in window)||Notification.permission!=='granted')return;const now=new Date();if(now.getHours()<8||now.getHours()>10)return;const today=`${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`;people.forEach(p=>{[[daysUntil(p.date),'birthday'],[halfDaysUntil(p.date),'half']].forEach(([days,type])=>{if(![0,1,7].includes(days))return;const key=`${p.id}-${type}-${today}-${days}`;if(localStorage.getItem('birthday-notified-'+key))return;const timing=days===0?'היום!':days===1?'מחר!':'בעוד שבוע!';const title=type==='birthday'?'🎂 יום הולדת':'🎉 חצי יום הולדת';new Notification(`${title}: ${p.name}`,{body:type==='birthday'?`יום ההולדת ${timing} חוגגים גיל ${ageAtNext(p.date)}.`:`חצי יום ההולדת ${timing}`});localStorage.setItem('birthday-notified-'+key,'1');});});}
+document.querySelectorAll('[data-theme]').forEach(btn=>btn.addEventListener('click',()=>applyTheme(themes[btn.dataset.theme])));
+['colorPrimary','colorHeader2','colorBackground','colorCard','colorText','colorAccent'].forEach(id=>$(id).addEventListener('input',()=>applyTheme(readThemeInputs())));
+$('saveTheme').onclick=()=>{saveTheme();alert('העיצוב נשמר בדפדפן הזה 🎨');};
+$('resetTheme').onclick=()=>{applyTheme(defaultTheme);localStorage.setItem(THEME_KEY,JSON.stringify(defaultTheme));};
+try{applyTheme({...defaultTheme,...JSON.parse(localStorage.getItem(THEME_KEY)||'{}')});}catch(e){applyTheme(defaultTheme);}
+function showPageTab(tab){
+ const design=tab==='design';
+ $('birthdaysView').hidden=design;
+ $('designView').hidden=!design;
+ $('birthdaysTab').classList.toggle('active',!design);
+ $('designTab').classList.toggle('active',design);
+ $('birthdaysTab').setAttribute('aria-selected',String(!design));
+ $('designTab').setAttribute('aria-selected',String(design));
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+$('birthdaysTab').addEventListener('click',()=>showPageTab('birthdays'));
+$('designTab').addEventListener('click',()=>showPageTab('design'));
 render();checkReminders();setInterval(checkReminders,60000);
 </script>
 </body></html>
